@@ -23,7 +23,12 @@ namespace Hairsalon.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Services()
+        {
+            return View();
+        }
+
+        public IActionResult ContactUs()
         {
             return View();
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Hairsalon.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,8 @@ namespace Hairsalon.Data
             : base(options)
         {
         }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Service> Services { get; set; }
     }
 }

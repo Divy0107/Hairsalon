@@ -15,7 +15,7 @@ namespace Hairsalon.Models
         [DataType(DataType.Time)]
         public DateTime Time { get; set; }
 
-        [DataType(DataType.Time)]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         //parent reference

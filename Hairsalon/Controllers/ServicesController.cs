@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hairsalon.Data;
 using Hairsalon.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hairsalon.Controllers
 {
+    [Authorize]
     public class ServicesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +26,7 @@ namespace Hairsalon.Controllers
         {
             return View(await _context.Services.ToListAsync());
         }
-
+        [AllowAnonymous]
         // GET: Services/Details/5
         public async Task<IActionResult> Details(int? id)
         {

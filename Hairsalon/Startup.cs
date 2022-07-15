@@ -32,6 +32,17 @@ namespace Hairsalon
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddAuthentication()
+          .AddGoogle(options =>
+          {
+              IConfigurationSection googleAuthNSection =
+                  Configuration.GetSection("Authentication:Google");
+
+              options.ClientId = googleAuthNSection["ClientId"];
+              options.ClientSecret = googleAuthNSection["ClientSecret"];
+          });
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
